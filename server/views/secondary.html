@@ -11,10 +11,10 @@
         <!-- Static navbar-->
         <nav role="navigation" class="navbar navbar-static-top navbar-default">
             <div class="container">
-                <div class="navbar-header"><button type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="" class="navbar-brand">Title Here</a></div>
-                <div id="navbar" class="collapse navbar-collapse">
-                    <li><a href="/">Index</a></li>
-                    <li class="active"><a href="/second">RESTAURANT FINDER</a></li>
+            <div class="container">
+                <div id="navbar">
+                    <a style="margin-right:100px" href="/">Vegan Livability Index</a>
+                    <a style="margin-right:100px" href="/second">Restaurant Finder</a>
                 </div>
             </div>
         </nav>
@@ -25,18 +25,18 @@
          <div ng-controller="secController">
         <p><span aria-hidden="true" class="glyphicon text-primary glyphicon-search"></span> Restaurant Finder:
         </p>
-            City: <input type="text" name="city" ng-model="city" value=""/></br>
-            State: <input type="text" name="state" ng-model="state" value=""/></br>
-            Zip: <input type="text" name="zip" ng-model="zip" value=""/></br>
+            City: <input type="text" name="city" ng-model="city" placeholder="Philadelphia"/></br>
+            State: <input type="text" name="state" ng-model="state" placeholder="PA"/></br>
+            Zip: <input type="text" name="zip" ng-model="zip" placeholder="19103"/></br>
             <!--function name when you click button-->
             <button type="button" ng-click="Something()" class="button">Search</button></br>
 
             <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
             <tr> 
-            <td> Name </td>
-            <td> City </td>
-            <td> State </td>
-            <td> Zip </td>
+            <td style="width:300px"> <b>Name </b></td>
+            <td style="width:100px"><b> City </b></td>
+            <td style="width:100px"> <b>State </b></td>
+            <td style="width:80px"><b> Zip</b> </td></tr>
             <tr ng-repeat="x in data"> 
             <td> {{x.RESTAURANT_NAME}} </td>
             <td> {{x.CITY}} </td>

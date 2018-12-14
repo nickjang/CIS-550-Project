@@ -45,7 +45,7 @@ async function findbestR(context) {
   const binds = {};
   var query = ``;
   if (context.state) {
-    query = 'select * from (select county_name, (res_counts / population) * 100000 res_per_100000 from (select c.county_name, c.population, count(r.restaurant_name)  res_counts from restaurants r join countyzips cz on r.zip = cz.zip join crimes c on cz.county_fips = c.county_fips where r.state = \'' + context.state + '\' group by c.county_name, c.population) order by res_per_100000 desc) where ROWNUM <= 5';
+    query = 'select * from (select county_name, round((res_counts / population) * 100000, 2) res_per_100000 from (select c.county_name, c.population, count(r.restaurant_name)  res_counts from restaurants r join countyzips cz on r.zip = cz.zip join crimes c on cz.county_fips = c.county_fips where r.state = \'' + context.state + '\' group by c.county_name, c.population) order by res_per_100000 desc) where ROWNUM <= 5';
   }
  
   const result = await database.doExecute(query, binds);
@@ -81,7 +81,7 @@ async function findworstR(context) {
   const binds = {};
   var query = ``;
   if (context.state) {
-    query = 'select * from (select county_name, (res_counts / population) * 100000 res_per_100000 from (select c.county_name, c.population, count(r.restaurant_name)  res_counts from restaurants r join countyzips cz on r.zip = cz.zip join crimes c on cz.county_fips = c.county_fips where r.state = \'' + context.state + '\' group by c.county_name, c.population) order by res_per_100000) where ROWNUM <= 5';
+    query = 'select * from (select county_name, round((res_counts / population) * 100000, 2) res_per_100000 from (select c.county_name, c.population, count(r.restaurant_name)  res_counts from restaurants r join countyzips cz on r.zip = cz.zip join crimes c on cz.county_fips = c.county_fips where r.state = \'' + context.state + '\' group by c.county_name, c.population) order by res_per_100000) where ROWNUM <= 5';
   }
  
   const result = await database.doExecute(query, binds);
