@@ -11,10 +11,10 @@
         <!-- Static navbar-->
         <nav role="navigation" class="navbar navbar-static-top navbar-default">
             <div class="container">
-                <div class="navbar-header"><button type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="" class="navbar-brand">Title Here</a></div>
+                <div class="navbar-header"><button type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="" class="navbar-brand"><h1>Title Here</h1></a></div>
                 <div id="navbar" class="collapse navbar-collapse">
-                    <li class="active"><a href="/">MAIN PAGE</a></li>
-                    <li><a href="/second">Second Page</a></li>
+                    <li class="active"><a href="/">INDEX</a></li>
+                    <li><a href="/second">Restaurant Finder</a></li>
                 </div>
             </div>
         </nav>
@@ -28,19 +28,71 @@
             <!--function name when you click button-->
             <button type="button" ng-click="Submit()" class="button">Find restaurants</button>
         </p>
+        <p> Most Vegan-friendly restaurants per capita:
+        </p>
         <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
             <tr> 
-            <td> Name </td>
-            <td> City </td>
-            <td> Zip </td>
-            <td> Lat </td>
-            <td> Lon </td>
+            <td> County Name </td>
+            <td> Restaurants per capita </td>
             <tr ng-repeat="x in data"> 
-            <td> {{x.RESTAURANT_NAME}} </td>
-            <td> {{x.CITY}} </td>
-            <td> {{x.ZIP}} </td>
-            <td> {{x.LATITUDE}} </td>
-            <td> {{x.LONGITUDE}} </td>
+            <td> {{x.COUNTY_NAME}} </td>
+            <td> {{x.RES_PER_100000}} </td>
+            </tr>
+        </table>
+        <p> Lowest crimes per capita:
+        </p>
+        <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
+            <tr> 
+            <td> County Name </td>
+            <td> Crime rate per capita </td>
+            <tr ng-repeat="x in data2"> 
+            <td> {{x.COUNTY_NAME}} </td>
+            <td> {{x.CRIME_RATE_PER_100000}} </td>
+            </tr>
+        </table>
+        <p> Lowest air pollution:
+        </p>
+        <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
+            <tr> 
+            <td> County Name </td>
+            <td> Days past policy standard </td>
+            <tr ng-repeat="x in data3"> 
+            <td> {{x.COUNTY_NAME}} </td>
+            <td> {{x.DAYS}} </td>
+            </tr>
+        </table>
+        </p>
+        <p> Least Vegan-friendly restaurants per capita:
+        </p>
+        <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
+            <tr> 
+            <td> County Name </td>
+            <td> Restaurants per capita </td>
+            <tr ng-repeat="x in data4"> 
+            <td> {{x.COUNTY_NAME}} </td>
+            <td> {{x.RES_PER_100000}} </td>
+            </tr>
+        </table>
+        <p> Highest crimes per capita:
+        </p>
+        <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
+            <tr> 
+            <td> County Name </td>
+            <td> Crime rate per capita </td>
+            <tr ng-repeat="x in data5"> 
+            <td> {{x.COUNTY_NAME}} </td>
+            <td> {{x.CRIME_RATE_PER_100000}} </td>
+            </tr>
+        </table>
+        <p> Highest air pollution:
+        </p>
+        <table border="0" cellpadding="10" cellspacing="1" width="500" align="center"> 
+            <tr> 
+            <td> County Name </td>
+            <td> Days past policy standard </td>
+            <tr ng-repeat="x in data6"> 
+            <td> {{x.COUNTY_NAME}} </td>
+            <td> {{x.DAYS}} </td>
             </tr>
         </table>
         </div>
